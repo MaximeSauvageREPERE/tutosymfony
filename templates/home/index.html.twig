@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<div style="margin: 50px; font-family: Arial, sans-serif;">
+    <h1>Bienvenue sur ma première page Symfony ! 🎉</h1>
+    
+    <p>Cette page est générée par le contrôleur : <strong>{{ controller_name }}</strong></p>
+    
+    <p>Pour modifier cette page :</p>
+    <ul>
+        <li>Contrôleur : <code>src/Controller/HomeController.php</code></li>
+        <li>Template : <code>templates/home/index.html.twig</code></li>
+    </ul>
+</div>
+{% endblock %}
