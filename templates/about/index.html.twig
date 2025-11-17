@@ -1,0 +1,15 @@
+{# Hérite du layout principal #}
+{% extends 'base.html.twig' %}
+
+{# Titre de la page #}
+{% block title %}À propos{% endblock %}
+
+{# Contenu principal #}
+{% block body %}
+    <div class="mt-5 text-center">
+        <h1>À propos</h1>
+        <p>Ce site Symfony a été créé pour apprendre et expérimenter le framework Symfony 7 avec Bootstrap 5.</p>
+        <p>Contrôleur : <code>src/Controller/AboutController.php</code></p>
+        <p>Template : <code>templates/about/index.html.twig</code></p>
+    </div>
+{% endblock %}
