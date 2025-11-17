@@ -41,7 +41,18 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="nav-link {{ app.request.attributes.get('_route') == 'app_home' ? 'active' }}" href="/home">Accueil</a></li>
-                            <li class="nav-item"><a class="nav-link {{ app.request.attributes.get('_route') == 'app_blog' ? 'active' }}" href="/blog">Blog</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle {{ app.request.attributes.get('_route') starts with 'app_blog' ? 'active' }}" href="#" id="navbarBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Blog
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarBlog">
+                                    <li><a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog' ? 'active' }}" href="/blog">Liste des articles</a></li>
+                                    <li><a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog_new' ? 'active' }}" href="/blog/new">Nouvel article</a></li>
+                                    <li><a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog_show' ? 'active' }}" href="/blog/exemple-article">Voir un article</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog_by_category' ? 'active' }}" href="/blog/category/actualites">Filtrer par catégorie</a></li>
+                                </ul>
+                            </li>
                             <li class="nav-item"><a class="nav-link {{ app.request.attributes.get('_route') == 'app_about' ? 'active' }}" href="/about">À propos</a></li>
                             <li class="nav-item"><a class="nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' }}" href="/contact">Contact</a></li>
                         </ul>
