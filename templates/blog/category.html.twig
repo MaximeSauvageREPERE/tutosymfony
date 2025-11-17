@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Articles de la catégorie {{ category }}{% endblock %}
+{% block title %}Articles de la catégorie
+	{{ category }}
+{% endblock %}
 
 {% block body %}
-    <div class="mt-5 text-center">
-        <h1>Catégorie : {{ category }}</h1>
-        <p>Voici la liste des articles de la catégorie <strong>{{ category }}</strong>.</p>
-    </div>
+	<div class="mt-5 text-center">
+		<h1>Catégorie :
+			{{ category }}</h1>
+		<p>Voici la liste des articles de la catégorie
+			<strong>{{ category }}</strong>.</p>
+	</div>
 {% endblock %}
