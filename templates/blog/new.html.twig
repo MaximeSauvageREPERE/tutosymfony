@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel article{% endblock %}
+
+{% block body %}
+    <div class="mt-5 text-center">
+        <h1>Créer un nouvel article</h1>
+        <form class="mx-auto" style="max-width:400px;">
+            <div class="mb-3">
+                <label for="titre" class="form-label">Titre</label>
+                <input type="text" class="form-control" id="titre" placeholder="Titre de l'article">
+            </div>
+            <div class="mb-3">
+                <label for="contenu" class="form-label">Contenu</label>
+                <textarea class="form-control" id="contenu" rows="4" placeholder="Contenu de l'article"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Publier</button>
+        </form>
+        <a href="/blog" class="btn btn-secondary mt-3">Retour au blog</a>
+    </div>
+{% endblock %}
