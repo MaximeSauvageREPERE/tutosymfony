@@ -1,74 +1,100 @@
 {# Début du document HTML #}
 <!DOCTYPE html>
 <html>
-    <head>
-        {# Définition de l'encodage des caractères #}
-        <meta charset="UTF-8">
-        {# Bloc pour le titre de la page, surchargeable dans les templates enfants #}
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Favicon personnalisé (icône de l'onglet) #}
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {# Intégration de Bootstrap 5 via CDN #}
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        {# Bloc pour ajouter des styles CSS personnalisés #}
-        {% block stylesheets %}
-            <style>
-                body { margin: 0; }
-                main { min-height: calc(100vh - 140px); }
-            </style>
-        {% endblock %}
+	<head>
+		{# Définition de l'encodage des caractères #}
+		<meta
+		charset="UTF-8">
+		{# Bloc pour le titre de la page, surchargeable dans les templates enfants #}
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{# Favicon personnalisé (icône de l'onglet) #}
+		<link
+		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		{# Intégration de Bootstrap 5 via CDN #}
+		<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+		{# Bloc pour ajouter des styles CSS personnalisés #}
+		{% block stylesheets %}
+			<style>
+				body {
+					margin: 0;
+				}
+				main {
+					min-height: calc(100vh - 140px);
+				}
+			</style>
+		{% endblock %}
 
-        {# Bloc pour les scripts JS, surchargeable dans les templates enfants #}
-        {% block javascripts %}
-            {# Importmap pour charger les modules JS gérés par Symfony #}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-            {# Script Bootstrap JS (avec Popper inclus) #}
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        {% endblock %}
-    </head>
-    <body>
-        {# Header du site avec une navbar Bootstrap #}
-        <header class="bg-dark text-white">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-dark">
-                    {# Logo/nom du site #}
-                    <a class="navbar-brand" href="/home">Mon Site Symfony</a>
-                    {# Bouton hamburger pour le menu mobile #}
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    {# Menu de navigation #}
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link {{ app.request.attributes.get('_route') == 'app_home' ? 'active' }}" href="/home">Accueil</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle {{ app.request.attributes.get('_route') starts with 'app_blog' ? 'active' }}" href="#" id="navbarBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Blog
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarBlog">
-                                    <li><a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog' ? 'active' }}" href="/blog">Liste des articles</a></li>
-                                    <li><a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog_new' ? 'active' }}" href="/blog/new">Nouvel article</a></li>
-                                    <li><a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog_show' ? 'active' }}" href="/blog/exemple-article">Voir un article</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog_by_category' ? 'active' }}" href="/blog/category/actualites">Filtrer par catégorie</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item"><a class="nav-link {{ app.request.attributes.get('_route') == 'app_about' ? 'active' }}" href="/about">À propos</a></li>
-                            <li class="nav-item"><a class="nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' }}" href="/contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </header>
+		{# Bloc pour les scripts JS, surchargeable dans les templates enfants #}
+		{% block javascripts %}
+			{# Importmap pour charger les modules JS gérés par Symfony #}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+			{# Script Bootstrap JS (avec Popper inclus) #}
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+		{% endblock %}
+	</head>
+	<body>
+		{# Header du site avec une navbar Bootstrap #}
+		<header class="bg-dark text-white">
+			<div class="container">
+				<nav
+					class="navbar navbar-expand-lg navbar-dark">
+					{# Logo/nom du site #}
+					<a class="navbar-brand" href="/home">Mon Site Symfony</a>
+					{# Bouton hamburger pour le menu mobile #}
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					{# Menu de navigation #}
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a class="nav-link {{ app.request.attributes.get('_route') == 'app_home' ? 'active' }}" href="/home">Accueil</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle {{ app.request.attributes.get('_route') starts with 'app_blog' ? 'active' }}" href="#" id="navbarBlog" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Blog
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarBlog">
+									<li>
+										<a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog' ? 'active' }}" href="/blog">Liste des articles</a>
+									</li>
+									<li>
+										<a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog_new' ? 'active' }}" href="/blog/new">Nouvel article</a>
+									</li>
+									<li>
+										<a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog_show' ? 'active' }}" href="/blog/exemple-article">Voir un article</a>
+									</li>
+									<li><hr class="dropdown-divider"></li>
+									<li>
+										<a class="dropdown-item {{ app.request.attributes.get('_route') == 'app_blog_by_category' ? 'active' }}" href="/blog/category/actualites">Filtrer par catégorie</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link {{ app.request.attributes.get('_route') == 'app_about' ? 'active' }}" href="/about">À propos</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' }}" href="/contact">Contact</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
 
-        {# Contenu principal de la page, injecté par les templates enfants #}
-        <main class="container my-4">
-            {% block body %}{% endblock %}
-        </main>
+		{# Contenu principal de la page, injecté par les templates enfants #}
+		<main class="container my-4"> {% block body %}{% endblock %}
+			</main>
 
-        {# Footer du site #}
-        <footer class="bg-secondary text-white text-center py-3 mt-5">
-            <p class="mb-0">&copy; 2025 Mon Site Symfony - Tous droits réservés</p>
-        </footer>
-    </body>
-</html>
+			{# Footer du site #}
+			<footer class="bg-black text-white text-center py-3 mt-5">
+				<p class="mb-0">&copy; 2025 Mon Site Symfony - Tous droits réservés</p>
+			</footer>
+		</body>
+	</html>
