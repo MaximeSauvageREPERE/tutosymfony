@@ -14,16 +14,15 @@ use Symfony\Component\Routing\Attribute\Route;
 class HomeController extends AbstractController
 {
     // Attribut PHP : définit la route /home et le nom de la route "app_home"
-    #[Route('/home/{nom}-{prenom}', name: 'app_home')]
+    #[Route('/home', name: 'app_home')]
     // Méthode appelée quand la route /home est visitée
-    public function index(string $nom, string $prenom): Response
+    public function index(): Response
     {
         // Génère une réponse HTML en rendant le template Twig 'home/index.html.twig'
         // et en lui passant la variable 'controller_name'
+        // récupére le nom et le prenom passés en paramètre dans l'URL
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'nom' => $nom,
-            'prenom' => $prenom,
         ]);
     }
 }

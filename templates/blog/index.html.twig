@@ -1,0 +1,15 @@
+{# Hérite du layout principal #}
+{% extends 'base.html.twig' %}
+
+{# Titre de la page #}
+{% block title %}Blog{% endblock %}
+
+{# Contenu principal #}
+{% block body %}
+    <div class="mt-5 text-center">
+        <h1>Blog</h1>
+        <p>Bienvenue sur le blog !</p>
+        <p>Contrôleur : <code>src/Controller/BlogController.php</code></p>
+        <p>Template : <code>templates/blog/index.html.twig</code></p>
+    </div>
+{% endblock %}
