@@ -1,0 +1,26 @@
+{# Hérite du layout principal #}
+{% extends 'base.html.twig' %}
+
+{# Titre de la page #}
+{% block title %}Contact{% endblock %}
+
+{# Contenu principal #}
+{% block body %}
+    <div class="mt-5 text-center">
+        <h1>Contact</h1>
+        <p>Vous pouvez me contacter via ce formulaire (exemple à personnaliser) :</p>
+        <form class="mx-auto" style="max-width:400px;">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Votre email">
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Votre message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+        <p class="mt-4">Contrôleur : <code>src/Controller/ContactController.php</code></p>
+        <p>Template : <code>templates/contact/index.html.twig</code></p>
+    </div>
+{% endblock %}
