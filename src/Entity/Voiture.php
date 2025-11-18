@@ -1,19 +1,17 @@
 <?php
 namespace App\Entity;
 
-
-
 class Voiture
 {
     /**
      * Marque de la voiture (ex : Nissan, Renault...)
      */
-    private string $marque;
+    private $marque;
 
     /**
      * Modèle de la voiture (ex : GT-R, Clio...)
      */
-    private string $modele;
+    private $modele;
 
     /**
      * Roue avant gauche (objet Roue)
@@ -35,14 +33,10 @@ class Voiture
      */
     private $roueArriereDroite;
 
-
     /**
      * Constructeur vide
      */
-    public function __construct()
-    {
-    }
-
+    public function __construct() {}
 
     /**
      * Définit la marque de la voiture
@@ -60,7 +54,6 @@ class Voiture
         return $this->marque;
     }
 
-
     /**
      * Définit le modèle de la voiture
      */
@@ -77,68 +70,67 @@ class Voiture
         return $this->modele;
     }
 
+    /**
+     * Définit la roue avant gauche
+     */
+    public function setRoueAvantGauche($roue): void
+    {
+        $this->roueAvantGauche = $roue;
+    }
 
-        /**
-         * Définit la roue avant gauche
-         */
-        public function setRoueAvantGauche($roue): void
-        {
-            $this->roueAvantGauche = $roue;
-        }
+    /**
+     * Retourne la roue avant gauche
+     */
+    public function getRoueAvantGauche()
+    {
+        return $this->roueAvantGauche;
+    }
 
-        /**
-         * Retourne la roue avant gauche
-         */
-        public function getRoueAvantGauche()
-        {
-            return $this->roueAvantGauche;
-        }
+    /**
+     * Définit la roue avant droite
+     */
+    public function setRoueAvantDroite($roue): void
+    {
+        $this->roueAvantDroite = $roue;
+    }
 
-        /**
-         * Définit la roue avant droite
-         */
-        public function setRoueAvantDroite($roue): void
-        {
-            $this->roueAvantDroite = $roue;
-        }
+    /**
+     * Retourne la roue avant droite
+     */
+    public function getRoueAvantDroite()
+    {
+        return $this->roueAvantDroite;
+    }
 
-        /**
-         * Retourne la roue avant droite
-         */
-        public function getRoueAvantDroite()
-        {
-            return $this->roueAvantDroite;
-        }
+    /**
+     * Définit la roue arrière gauche
+     */
+    public function setRoueArriereGauche($roue): void
+    {
+        $this->roueArriereGauche = $roue;
+    }
 
-        /**
-         * Définit la roue arrière gauche
-         */
-        public function setRoueArriereGauche($roue): void
-        {
-            $this->roueArriereGauche = $roue;
-        }
+    /**
+     * Retourne la roue arrière gauche
+     */
+    public function getRoueArriereGauche()
+    {
+        return $this->roueArriereGauche;
+    }
 
-        /**
-         * Retourne la roue arrière gauche
-         */
-        public function getRoueArriereGauche()
-        {
-            return $this->roueArriereGauche;
-        }
+    /**
+     * Définit la roue arrière droite
+     */
+    public function setRoueArriereDroite($roue): void
+    {
+        $this->roueArriereDroite = $roue;
+    }
 
-        /**
-         * Définit la roue arrière droite
-         */
-        public function setRoueArriereDroite($roue): void
-        {
-            $this->roueArriereDroite = $roue;
-        }
-
-        /**
-         * Retourne la roue arrière droite
-         */
-        public function getRoueArriereDroite()
-        {
-            return $this->roueArriereDroite;
-        }
+    /**
+     * Retourne la roue arrière droite
+     */
+    public function getRoueArriereDroite()
+    {
+        return $this->roueArriereDroite;
+    }
 }
