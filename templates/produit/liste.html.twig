@@ -3,27 +3,53 @@
 {% block title %}Liste des produits{% endblock %}
 
 {% block body %}
-    <h1>Liste des produits</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nom</th>
-                <th>Prix</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for produit in produits %}
-            <tr>
-                <td>{{ produit.id }}</td>
-                <td>{{ produit.nom }}</td>
-                <td>{{ produit.prix }}</td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">Aucun produit trouvé.</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mb-4 text-primary">Liste des produits</h1>
+                <table class="table table-striped table-hover table-bordered align-middle shadow-sm rounded">
+                    <style>
+                        .table th, .table td {
+                            vertical-align: middle;
+                            text-align: center;
+                        }
+                        .table thead th {
+                            background-color: #f8f9fa;
+                            color: #495057;
+                            font-weight: bold;
+                        }
+                        .btn-primary.btn-sm {
+                            padding: 0.25rem 0.75rem;
+                            font-size: 0.95rem;
+                            border-radius: 0.3rem;
+                        }
+                    </style>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Prix</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for produit in produits %}
+                        <tr>
+                            <td>{{ produit.id }}</td>
+                            <td>{{ produit.nom }}</td>
+                            <td>{{ produit.prix }}</td>
+                            <td>
+                                <a href="{{ path('produit_fiche', {'id': produit.id}) }}" class="btn btn-dark btn-sm">Voir</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">Aucun produit trouvé.</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
