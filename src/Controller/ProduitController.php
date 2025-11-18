@@ -76,4 +76,19 @@ final class ProduitController extends AbstractController
             'produit' => $produit,
         ]);
     }
+
+        /**
+         * Route : /produit/supprimer/{id}
+         * Supprime un produit selon son id puis redirige vers la liste.
+         */
+        #[Route('/produit/supprimer/{id}', name: 'produit_supprimer', requirements: ['id' => '\\d+'], methods: ['POST'])]
+        public function supprimerProduit(int $id, EntityManagerInterface $entityManager): Response
+        {
+            $produit = $entityManager->getRepository(Produit::class)->find($id);
+            if ($produit) {
+                $entityManager->remove($produit);
+                $entityManager->flush();
+            }
+            return $this->redirectToRoute('produit_afficher');
+        }
 }

@@ -16,6 +16,9 @@
                                 <li class="list-group-item"><strong>Prix :</strong> {{ produit.prix }} €</li>
                             </ul>
                             <a href="{{ path('produit_afficher') }}" class="btn btn-outline-dark">Retour à la liste</a>
+                            <form action="{{ path('produit_supprimer', {'id': produit.id}) }}" method="post" style="display:inline-block; margin-left:10px;" onsubmit="return confirm('Supprimer ce produit ?');">
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>
                         </div>
                     </div>
                 {% else %}
