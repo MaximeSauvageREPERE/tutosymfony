@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voitures{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2>Liste des voitures</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Marque</th>
+                    <th>Modèle</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for voiture in voitures %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ voiture.marque }}</td>
+                    <td>{{ voiture.modele }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

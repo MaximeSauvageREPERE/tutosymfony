@@ -3,6 +3,7 @@
 // Déclare le namespace pour organiser le code
 namespace App\Controller;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -10,6 +11,12 @@ use Symfony\Component\Routing\Attribute\Route;
 // Contrôleur pour la page "Blog"
 final class BlogController extends AbstractController
 {
+    public function __construct(private LoggerInterface $logger)
+    {
+        
+    }
+
+
     // Route pour filtrer les articles par catégorie
     #[Route('/blog/category/{category}', name: 'app_blog_by_category', requirements: ['category' => '[a-zA-Z0-9_-]+'])]
     public function byCategory(string $category): Response
@@ -21,8 +28,10 @@ final class BlogController extends AbstractController
     }
     // Route pour /blog (liste des articles)
     #[Route('/blog', name: 'app_blog')]
-    public function index(): Response
+    public function index(LoggerInterface $logger): Response
     {
+        $this->logger->info('Affichage de la liste des articles du blog.');
+        $logger->warning('Ceci est un message de test de niveau warning.');
         return $this->render('blog/index.html.twig');
     }
 
