@@ -29,15 +29,6 @@ class Produit
     }
 
     /**
-     * Set id
-     */
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    /**
      * Get nom
      */
     public function getNom()
