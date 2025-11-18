@@ -3,14 +3,38 @@
 {% block title %}Fiche produit{% endblock %}
 
 {% block body %}
-    <h1>Fiche produit</h1>
-    {% if produit %}
-        <ul>
-            <li><strong>ID :</strong> {{ produit.id }}</li>
-            <li><strong>Nom :</strong> {{ produit.nom }}</li>
-            <li><strong>Prix :</strong> {{ produit.prix }}</li>
-        </ul>
-    {% else %}
-        <p>Produit non trouvé.</p>
-    {% endif %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="mb-4 text-center text-black">Fiche produit</h1>
+                {% if produit %}
+                    <div class="card shadow rounded">
+                        <div class="card-body">
+                            <h4 class="card-title mb-3 text-center text-black">{{ produit.nom }}</h4>
+                            <ul class="list-group list-group-flush mb-3">
+                                <li class="list-group-item"><strong>ID :</strong> {{ produit.id }}</li>
+                                <li class="list-group-item"><strong>Prix :</strong> {{ produit.prix }} €</li>
+                            </ul>
+                            <a href="{{ path('produit_afficher') }}" class="btn btn-outline-dark">Retour à la liste</a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger text-center">Produit non trouvé.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <style>
+        .card-title {
+            font-weight: 600;
+            color: #0d6efd;
+        }
+        .card {
+            border: 1px solid #e3e3e3;
+            background: #f8f9fa;
+        }
+        .list-group-item {
+            font-size: 1.1rem;
+        }
+    </style>
 {% endblock %}
