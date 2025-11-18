@@ -4,7 +4,9 @@
 
 {% block body %}
     <div class="container mt-5">
+        <!-- Titre de la section -->
         <h2>Liste des voitures</h2>
+        <!-- Tableau affichant les voitures et leurs roues -->
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -18,6 +20,7 @@
                 </tr>
             </thead>
             <tbody>
+               <!-- Première voiture avec roues renseignées -->
                <tr>
                     <td>1</td>
                     <td>{{ voiture1.marque }}</td>
@@ -27,6 +30,7 @@
                     <td>{% if voiture1.roueArriereGauche %}{{ voiture1.roueArriereGauche.marque }} ({{ voiture1.roueArriereGauche.prix }} €){% else %}Non renseigné{% endif %}</td>
                     <td>{% if voiture1.roueArriereDroite %}{{ voiture1.roueArriereDroite.marque }} ({{ voiture1.roueArriereDroite.prix }} €){% else %}Non renseigné{% endif %}</td>
                 </tr>
+                <!-- Voiture 2 -->
                 <tr>
                     <td>2</td>
                     <td>{{ voiture2.marque }}</td>
@@ -36,6 +40,7 @@
                     <td>{% if voiture2.roueArriereGauche %}{{ voiture2.roueArriereGauche.marque }} ({{ voiture2.roueArriereGauche.prix }} €){% else %}Non renseigné{% endif %}</td>
                     <td>{% if voiture2.roueArriereDroite %}{{ voiture2.roueArriereDroite.marque }} ({{ voiture2.roueArriereDroite.prix }} €){% else %}Non renseigné{% endif %}</td>
                 </tr>
+                <!-- Voiture 3 -->
                 <tr>
                     <td>3</td>
                     <td>{{ voiture3.marque }}</td>
@@ -45,6 +50,7 @@
                     <td>{% if voiture3.roueArriereGauche %}{{ voiture3.roueArriereGauche.marque }} ({{ voiture3.roueArriereGauche.prix }} €){% else %}Non renseigné{% endif %}</td>
                     <td>{% if voiture3.roueArriereDroite %}{{ voiture3.roueArriereDroite.marque }} ({{ voiture3.roueArriereDroite.prix }} €){% else %}Non renseigné{% endif %}</td>
                 </tr>
+                <!-- Voiture 4 -->
                 <tr>
                     <td>4</td>
                     <td>{{ voiture4.marque }}</td>
@@ -54,6 +60,7 @@
                     <td>{% if voiture4.roueArriereGauche %}{{ voiture4.roueArriereGauche.marque }} ({{ voiture4.roueArriereGauche.prix }} €){% else %}Non renseigné{% endif %}</td>
                     <td>{% if voiture4.roueArriereDroite %}{{ voiture4.roueArriereDroite.marque }} ({{ voiture4.roueArriereDroite.prix }} €){% else %}Non renseigné{% endif %}</td>
                 </tr>
+                <!-- Voiture 5 -->
                 <tr>
                     <td>5</td>
                     <td>{{ voiture5.marque }}</td>
@@ -63,6 +70,7 @@
                     <td>{% if voiture5.roueArriereGauche %}{{ voiture5.roueArriereGauche.marque }} ({{ voiture5.roueArriereGauche.prix }} €){% else %}Non renseigné{% endif %}</td>
                     <td>{% if voiture5.roueArriereDroite %}{{ voiture5.roueArriereDroite.marque }} ({{ voiture5.roueArriereDroite.prix }} €){% else %}Non renseigné{% endif %}</td>
                 </tr>
+                <!-- Voiture 6 -->
                 <tr>
                     <td>6</td>
                     <td>{{ voiture6.marque }}</td>
@@ -72,6 +80,7 @@
                     <td>{% if voiture6.roueArriereGauche %}{{ voiture6.roueArriereGauche.marque }} ({{ voiture6.roueArriereGauche.prix }} €){% else %}Non renseigné{% endif %}</td>
                     <td>{% if voiture6.roueArriereDroite %}{{ voiture6.roueArriereDroite.marque }} ({{ voiture6.roueArriereDroite.prix }} €){% else %}Non renseigné{% endif %}</td>
                 </tr>
+                <!-- Voiture 7 -->
                 <tr>
                     <td>7</td>
                     <td>{{ voiture7.marque }}</td>

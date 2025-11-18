@@ -47,23 +47,21 @@ final class VoitureController extends AbstractController
         $roue1->setPrix(100);
 
         $roue2 = new Roue();
-        $roue2->setMarque('Michelin');
+        $roue2->setMarque('Pirelli');
         $roue2->setPrix(100);
 
-        $roue3 = new Roue();
-        $roue3->setMarque('Michelin');
-        $roue3->setPrix(100);
-
-        $roue4 = new Roue();
-        $roue4->setMarque('Michelin');
-        $roue4->setPrix(100);
 
         // Attribution des roues à la première voiture
         $voiture1->setRoueAvantGauche($roue1);
-        $voiture1->setRoueAvantDroite($roue2);
-        $voiture1->setRoueArriereGauche($roue3);
-        $voiture1->setRoueArriereDroite($roue4);
-        
+        $voiture1->setRoueAvantDroite($roue1);
+        $voiture1->setRoueArriereGauche($roue1);
+        $voiture1->setRoueArriereDroite($roue1);
+
+        $voiture2->setRoueAvantGauche($roue1);
+        $voiture2->setRoueAvantDroite($roue1);
+        $voiture2->setRoueArriereGauche($roue2);
+        $voiture2->setRoueArriereDroite($roue2);
+
         // On passe les 7 voitures à la vue séparément
         return $this->render('voiture/index.html.twig', [
             'voiture1' => $voiture1,
