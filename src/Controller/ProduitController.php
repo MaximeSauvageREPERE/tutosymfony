@@ -30,27 +30,24 @@ final class ProduitController extends AbstractController
         ]);
     }
 
-    #[Route('/produit/produits', name: 'produit_liste', methods: ['GET'])]
-    public function listeProduits(EntityManagerInterface $entityManager): Response
-    {
-        $produits = $entityManager->getRepository(Produit::class)->findAll();
-        $data = [];
-        foreach ($produits as $produit) {
-            $data[] = [
-                'id' => $produit->getId(),
-                'nom' => $produit->getNom(),
-                'prix' => $produit->getPrix(),
-            ];
-        }
-        return $this->json($data);
-    }
-
     #[Route('/produit/liste', name: 'produit_afficher', methods: ['GET'])]
     public function afficherProduits(EntityManagerInterface $entityManager): Response
     {
         $produits = $entityManager->getRepository(Produit::class)->findAll();
         return $this->render('produit/liste.html.twig', [
             'produits' => $produits,
+        ]);
+    }
+
+    #[Route('/produit/{id}', name: 'produit_fiche', requirements: ['id' => '\\d+'], methods: ['GET'])]
+    public function ficheProduit(int $id, EntityManagerInterface $entityManager): Response
+    {
+        $produit = $entityManager->getRepository(Produit::class)->find($id);
+        if (!$produit) {
+            throw $this->createNotFoundException('Produit non trouvé');
+        }
+        return $this->render('produit/fiche.html.twig', [
+            'produit' => $produit,
         ]);
     }
 }

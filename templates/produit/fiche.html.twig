@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche produit{% endblock %}
+
+{% block body %}
+    <h1>Fiche produit</h1>
+    {% if produit %}
+        <ul>
+            <li><strong>ID :</strong> {{ produit.id }}</li>
+            <li><strong>Nom :</strong> {{ produit.nom }}</li>
+            <li><strong>Prix :</strong> {{ produit.prix }}</li>
+        </ul>
+    {% else %}
+        <p>Produit non trouvé.</p>
+    {% endif %}
+{% endblock %}
