@@ -25,6 +25,7 @@ final class ProduitController extends AbstractController
 
         $entityManager->persist($barreCereale);
         $entityManager->persist($imprimante);
+        $entityManager->flush();
 
         return $this->render('produit/index.html.twig', [
             'controller_name' => 'ProduitController',
